@@ -1,8 +1,10 @@
+require('dotenv').config();
+
 const express = require('express')
 const cors = require('cors')
 const TaskRoute = require('./router/TaskRoute')
-require('dotenv').config();
 const connectDB = require('./config/db'); // import your mongoose connection
+
 
 const app = express()
 connectDB()
