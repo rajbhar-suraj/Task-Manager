@@ -10,7 +10,7 @@ const app = express()
 connectDB()
 
 app.use(cors({
-    origin: process.env.CLIENT_URL,
+    origin: 'https://task-manager-git-main-suraj-rajbhars-projects.vercel.app',
     credentials: true
   }));
 
