@@ -1,5 +1,10 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://127.0.0.1:27017/Todos').then(()=>console.log('db connected')).catch((error)=>console.log('server issue',error))
+const MONGO_URI = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/Todos';
 
-module.exports = mongoose
+mongoose
+  .connect(MONGO_URI)
+  .then(() => console.log('MongoDB connected'))
+  .catch((error) => console.log('Database connection error:', error));
+
+module.exports = mongoose;
