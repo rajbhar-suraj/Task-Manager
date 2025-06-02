@@ -12,7 +12,7 @@ export const TaskContextProvider = ({ children }) => {
 
   const fetchTasks = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/tasks/fetch')
+      const response = await axios.get('http://localhost:10000/tasks/fetch')
       setTasks(response.data)
     } catch (error) {
       console.log(error.message);
@@ -22,7 +22,7 @@ export const TaskContextProvider = ({ children }) => {
   
   const createTasks = async ( {input} ) => {
     try {
-      const response = await axios.post('http://localhost:5000/tasks/create', input)
+      const response = await axios.post('http://localhost:10000/tasks/create', input)
       console.log("running fetch",response.data);
       await fetchTasks()
   
@@ -37,7 +37,7 @@ export const TaskContextProvider = ({ children }) => {
 
   async function taskDelete(id) {
     try {
-      const response = await axios.delete(`http://localhost:5000/tasks/delete/${id}`)
+      const response = await axios.delete(`http://localhost:10000/tasks/delete/${id}`)
       await fetchTasks()
       console.log(response.data);
     } catch (error) {
@@ -47,7 +47,7 @@ export const TaskContextProvider = ({ children }) => {
 
   async function taskEdit({ input }) {
     try {
-      const response = await axios.put(`http://localhost:5000/tasks/edit/${input._id}`, input)
+      const response = await axios.put(`http://localhost:10000/tasks/edit/${input._id}`, input)
       await fetchTasks()
       console.log(response.data);
     } catch (error) {
