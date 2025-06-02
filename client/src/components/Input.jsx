@@ -49,6 +49,7 @@ const Input = () => {
         value={input.title}
         onChange={inputHandler}
         className="w-120 py-3 px-4 rounded-md bg-gray-700 text-white text-xl focus:outline-none focus:ring-3 focus:ring-zinc-500"
+        required
       />
 
       <textarea
@@ -58,6 +59,7 @@ const Input = () => {
         value={input.description}
         onChange={inputHandler}
         className="w-120 py-3 px-4 rounded-md bg-gray-700 text-white text-xl focus:outline-none focus:ring-3 focus:ring-zinc-500"
+        required
       />
 
       <button
