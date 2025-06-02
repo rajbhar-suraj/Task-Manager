@@ -4,6 +4,8 @@ import { CiEdit } from "react-icons/ci";
 import React from 'react';
 import { useTaskContext } from '../contexts/TaskContext';
 import axios from 'axios';
+const API = import.meta.env.VITE_API_URL;
+
 
 const TaskList = () => {
   const { tasks, fetchTasks, taskDelete, setEditTask } = useTaskContext();
@@ -14,7 +16,7 @@ const TaskList = () => {
 
   async function toggleComplete(id, status) {
     try {
-      await axios.put(`http://localhost:5000/tasks/toggle/${id}`, { completed: status });
+      await axios.put(`${API}/tasks/toggle/${id}`, { completed: status });
       fetchTasks();
     } catch (error) {
       console.log(error.message);
